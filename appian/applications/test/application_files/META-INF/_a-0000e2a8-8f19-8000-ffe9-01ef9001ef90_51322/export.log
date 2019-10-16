@@ -1,0 +1,38 @@
+Success (1):
+content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 "contact_detail"
+
+Referenced precedents that were not exported (3):
+datatype 3360 {urn:com:appian:types:fr}fr_Flight_reservation
+user bhavana_i bhavana_i
+content 6588 _a-0000e27e-4cbf-8000-ffe9-01ef9001ef90_41311
+
+Trace:
+2019-10-16 10:29:20.023 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Begin transport.
+2019-10-16 10:29:20.023 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Retrieving object data.
+2019-10-16 10:29:20.11 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Setting uuids of object references.
+2019-10-16 10:29:20.112 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: [Content:id=8313,versionId=-1,name=contact_detail,type=32,subtype=6,uuid=_a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371,parent=6588]
+2019-10-16 10:29:20.12 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: Interface.forum
+2019-10-16 10:29:20.126 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: TypedVariable[name=fr_Flight_reservation,it=3360,v=<null>]
+2019-10-16 10:29:20.129 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: TypedVariable[name=cancel,it=26,v=<null>]
+2019-10-16 10:29:20.13 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: TypedVariable[name=readOnly,it=26,v=<null>]
+2019-10-16 10:29:20.13 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: TypedVariable[name=submit,it=26,v=<null>]
+2019-10-16 10:29:20.131 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: Interface.parent
+2019-10-16 10:29:20.143 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@7df8c3b[
+  ContentRole[name=readers,inherit=true,allowForAll=false]
+  ContentRole[name=authors,inherit=true,allowForAll=false]
+  ContentRole[name=administrators,usernames=[bhavana_i],inherit=true,allowForAll=false]
+  ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+  ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+  ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+  securityVector=143:SEC_PUBLIC=true,SEC_CREATOR_ADMIN=true,SEC_INH_ADMIN=true,SEC_INH_EDITOR=true,SEC_INH_VIEWER=true,SEC_ALL_ADMIN=false,SEC_ALL_EDITOR=false,SEC_ALL_VIEWER=false
+]
+2019-10-16 10:29:20.144 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: ContentRole[name=readers,inherit=true,allowForAll=false]
+2019-10-16 10:29:20.144 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: ContentRole[name=authors,inherit=true,allowForAll=false]
+2019-10-16 10:29:20.144 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: ContentRole[name=administrators,usernames=[bhavana_i],inherit=true,allowForAll=false]
+2019-10-16 10:29:20.151 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+2019-10-16 10:29:20.151 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+2019-10-16 10:29:20.151 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+2019-10-16 10:29:20.153 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Completing produce.
+2019-10-16 10:29:20.153 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Exporting binary resources.
+2019-10-16 10:29:20.153 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Serializing object to XML.
+2019-10-16 10:29:21.08 DEBUG content 15386 _a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371 Object transported.

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e35b-cf1a-8000-ffe9-01ef9001ef90_97342</versionUuid>
+    <rule>
+        <name>contact_detail</name>
+        <uuid>_a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51371</uuid>
+        <description></description>
+        <parentUuid>_a-0000e27e-4cbf-8000-ffe9-01ef9001ef90_41311</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "contact details",
+  contents: {
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_integerField"(
+              label: "Contact No.",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!fr_Flight_reservation.mobile_no,
+              saveInto: ri!fr_Flight_reservation.mobile_no,
+              readOnly: ri!readOnly
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Email Id",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!fr_Flight_reservation.email_id,
+              saveInto: ri!fr_Flight_reservation.email_id,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!fr_Flight_reservation.email_id
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!fr_Flight_reservation.email_id
+                ) &amp; " characters.",
+                null
+              )
+            )
+          }
+        )
+      }
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: #"SYSTEM_SYSRULES_ButtonWidget"(
+      label: "next",
+      value: true(),
+      saveinto: ri!submit,
+      submit: true,
+      style: "PRIMARY"
+    ),
+    secondaryButtons: #"SYSTEM_SYSRULES_ButtonWidget"(
+      label: "Cancel",
+      value: false(),
+      submit: true,
+      style: "NORMAL",
+      validate: false
+    ),
+    showWhen: or(
+      isnull(
+        ri!readOnly
+      ),
+      not(
+        ri!readOnly
+      )
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>fr_Flight_reservation</name>
+            <type>
+                <name>fr_Flight_reservation</name>
+                <namespace>urn:com:appian:types:fr</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>readOnly</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>submit</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>bhavana_i</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51387"/>
+        <historyInfo versionUuid="_a-0000e35b-cf1a-8000-ffe9-01ef9001ef90_97342"/>
+    </history>
+</contentHaul>
