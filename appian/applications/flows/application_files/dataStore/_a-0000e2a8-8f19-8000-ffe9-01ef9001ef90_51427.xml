@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataStoreHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_53457</versionUuid>
+    <dataStore>
+        <uuid>_a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_51427</uuid>
+        <name>status_flight1</name>
+        <description></description>
+        <dataSourceKey>jdbc/AppianBusinessDS</dataSourceKey>
+        <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>false</autoUpdateSchema>
+        <entities>
+            <entity>
+                <uuid>4a36e66e-9dd0-4341-b774-efd40cec462c</uuid>
+                <name>flight_status</name>
+                <type>{urn:com:appian:types:fs}flight_status</type>
+            </entity>
+        </entities>
+    </dataStore>
+    <isPublished>true</isPublished>
+    <roleMap>
+        <role inherit="false" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>bhavana_i</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2a8-8f19-8000-ffe9-01ef9001ef90_53457"/>
+    </history>
+</dataStoreHaul>
