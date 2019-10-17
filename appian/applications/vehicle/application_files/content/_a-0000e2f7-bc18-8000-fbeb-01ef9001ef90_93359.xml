@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93400</versionUuid>
+    <versionUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93439</versionUuid>
     <rule>
         <name>VFM_addVehicleForms</name>
         <uuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93359</uuid>
@@ -73,7 +73,7 @@
                       value: ri!vehicle.mileage,
                       saveInto: ri!vehicle.mileage,
                       refreshAfter: "UNFOCUS",
-                      required: true,
+                    
                       validations: {}
                     ),
                     #"SYSTEM_SYSRULES_textField"(
@@ -161,5 +161,6 @@
     </roleMap>
     <history>
         <historyInfo versionUuid="_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93400"/>
+        <historyInfo versionUuid="_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93439"/>
     </history>
 </contentHaul>
