@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91713</versionUuid>
+    <constant>
+        <name>VFM_VEHICLE_DATA_STORE_ENTITY</name>
+        <uuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91710</uuid>
+        <description>reference to the vehicle data store entity</description>
+        <parentUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_89553</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <typedValue>
+            <type>
+                <name>DataStoreEntity</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+            <value a:id="5b1e09d5-335c-4a8a-b086-016a9799ccf1@_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91696"/>
+        </typedValue>
+        <isEnvironmentSpecific>false</isEnvironmentSpecific>
+    </constant>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>hrishikesh_m</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91713"/>
+    </history>
+</contentHaul>

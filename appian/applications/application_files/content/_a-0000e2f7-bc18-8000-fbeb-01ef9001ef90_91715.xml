@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91723</versionUuid>
+    <rule>
+        <name>VFM_getAllVehicleMakesAndModels</name>
+        <uuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91715</uuid>
+        <description>return the make and model of the vehicles in the database.</description>
+        <parentUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_89558</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_queryEntity_v1"(
+  entity: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91710",
+  query: #"SYSTEM_SYSRULES_query"(
+    selection: #"SYSTEM_SYSRULES_querySelection"(
+      columns: {
+        #"SYSTEM_SYSRULES_queryColumn"(field: "make"),
+        #"SYSTEM_SYSRULES_queryColumn"(field: "model")
+      }
+    
+    ),
+    pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(
+      startIndex: 1,
+      batchSize: -1,
+      sort: #"SYSTEM_SYSRULES_sortInfo"(
+        field: "make",
+        ascending: true
+      )
+    )
+  )
+).data</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>hrishikesh_m</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_91723"/>
+    </history>
+</contentHaul>

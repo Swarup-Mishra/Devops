@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93400</versionUuid>
+    <rule>
+        <name>VFM_addVehicleForms</name>
+        <uuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93359</uuid>
+        <description>Allows registrars to add new vehicles to the fleet</description>
+        <parentUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93355</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "Add Vehicle to Fleet",
+  instructions: "Enter your data into fields provided.",
+  contents: {
+    #"SYSTEM_SYSRULES_cardLayout"(
+      contents: {
+        #"SYSTEM_SYSRULES_columnsLayout"(
+          columns: {
+            #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {
+                #"SYSTEM_SYSRULES_cardLayout"(
+                  contents: {
+                    #"SYSTEM_SYSRULES_dropdownField"(
+                      label: "Vehicle Category",
+                      labelPosition: "ABOVE",
+                      placeholderLabel: "--- Select a Value ---",
+                      choiceLabels: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_89580",
+                      choiceValues: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93392",
+                      value: ri!vehicle.category,
+                      saveInto: ri!vehicle.category,
+                      required: true,
+                      validations: {}
+                    ),
+                    #"SYSTEM_SYSRULES_textField"(
+                      label: "Make",
+                      labelPosition: "ABOVE",
+                      value: ri!vehicle.make,
+                      saveInto: ri!vehicle.make,
+                      refreshAfter: "UNFOCUS",
+                      required: true,
+                      validations: {}
+                    ),
+                    #"SYSTEM_SYSRULES_textField"(
+                      label: "Model",
+                      labelPosition: "ABOVE",
+                      value: ri!vehicle.model,
+                      saveInto: ri!vehicle.model,
+                      refreshAfter: "UNFOCUS",
+                      required: true,
+                      validations: {}
+                    )
+                  },
+                  style: "INFO",
+                  height: "AUTO",
+                  marginBelow: "STANDARD"
+                )
+              }
+            ),
+            #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {
+                #"SYSTEM_SYSRULES_cardLayout"(
+                  contents: {
+                    #"SYSTEM_SYSRULES_integerField"(
+                      label: "Mileage",
+                      labelPosition: "ABOVE",
+                      value: ri!vehicle.mileage,
+                      saveInto: ri!vehicle.mileage,
+                      refreshAfter: "UNFOCUS",
+                      required: true,
+                      validations: {}
+                    ),
+                    #"SYSTEM_SYSRULES_textField"(
+                      label: "Vehicle License Plate",
+                      labelPosition: "ABOVE",
+                      value: ri!vehicle.licensePlate,
+                      saveInto: ri!vehicle.licensePlate,
+                      refreshAfter: "UNFOCUS",
+                      required: true,
+                      validations: {}
+                    ),
+                    #"SYSTEM_SYSRULES_paragraphField"(
+                      label: "Vehicle Condition",
+                      labelPosition: "ABOVE",
+                      value: ri!vehicle.vehicleCondition,
+                      saveInto: ri!vehicle.vehicleCondition,
+                      refreshAfter: "UNFOCUS",
+                      required: true,
+                      height: "MEDIUM",
+                      validations: {}
+                    )
+                  },
+                  style: "INFO",
+                  height: "AUTO",
+                  marginBelow: "STANDARD"
+                )
+              }
+            )
+          }
+        )
+      },
+      style: "INFO",
+      height: "AUTO",
+      marginBelow: "STANDARD"
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Submit",
+        submit: true,
+        style: "PRIMARY"
+      )
+    },
+    secondaryButtons: {}
+  )
+)</definition>
+        <namedTypedValue>
+            <name>vehicle</name>
+            <type>
+                <name>VFM_Vehicle_Data</name>
+                <namespace>urn:com:appian:types:VFM</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>hrishikesh_m</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_93400"/>
+    </history>
+</contentHaul>
