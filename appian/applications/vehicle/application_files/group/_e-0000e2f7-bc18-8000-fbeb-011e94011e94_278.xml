@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_287</versionUuid>
+    <group>
+        <name>VFM Administartors</name>
+        <securityMap>SECURITYMAP_PUBLIC</securityMap>
+        <uuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_278</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <parentUuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_276</parentUuid>
+        <description>Test Group of Admin for Vehicle Fleet Management</description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_LOW</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups/>
+    </members>
+    <admins>
+        <users>
+            <userUuid>hrishikesh_m</userUuid>
+        </users>
+        <groups/>
+    </admins>
+    <ruleSet/>
+    <history>
+        <historyInfo versionUuid="_e-0000e2f7-bc18-8000-fbeb-011e94011e94_287"/>
+    </history>
+</groupHaul>
