@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tempoReportHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>c06d262c-31c3-49ce-a884-0ca05e6ca697</versionUuid>
+    <tempoReport a:uuid="e9f5f0cd-1d8e-4ec8-9cb8-ba01591a8f4b" name="Quotes">
+        <a:description>Report containing information and metrics on Quotes</a:description>
+        <a:uiExpr>=#"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60107"()</a:uiExpr>
+        <a:urlStub>BLaI4g</a:urlStub>
+    </tempoReport>
+    <roleMap>
+        <role name="report_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_226</groupUuid>
+            </groups>
+        </role>
+        <role name="report_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_228</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="c06d262c-31c3-49ce-a884-0ca05e6ca697"/>
+    </history>
+</tempoReportHaul>

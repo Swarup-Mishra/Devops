@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60146</versionUuid>
+    <constant>
+        <name>M_FIELD_DISPLAY_NAMES</name>
+        <uuid>_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60143</uuid>
+        <description>Constant storing all of the field display names from the CDT. Used to check for changes to the CDT. Parallel to the FIELD_NAMES and FIELD_TYPES constants. [Activity History]</description>
+        <parentUuid>390547d7-6b91-44f2-a76a-3824ddf59cbf</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <typedValue>
+            <type>
+                <name>Text?list</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+            <value>
+                <el>Title</el>
+                <el>Status</el>
+                <el>Priority</el>
+                <el>CreatedOn</el>
+                <el>EffectiveDate</el>
+                <el>Phone</el>
+                <el>Email</el>
+            </value>
+        </typedValue>
+        <isEnvironmentSpecific>false</isEnvironmentSpecific>
+    </constant>
+    <roleMap public="false">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60146"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>8ac39750-7352-4052-a63f-3261d3f78bb2</versionUuid>
+  <recordType a:uuid="4313422b-3999-4b0b-8470-d40725a9505f" name="Quote">
+    <a:pluralName>Quotes</a:pluralName>
+    <a:description>List of entries in the MIInsuranceQuote application</a:description>
+    <a:urlStub>p1C7-A</a:urlStub>
+    <a:source
+      a:uuid="731fcdda-8fea-4025-b947-3202934221ce@_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60155" xsi:type="a:DataStoreEntity"/>
+    <a:listViewTemplateExpr>#"SYSTEM_SYSRULES_recordGridLayoutColumns"(
+  rowHeader: 1,
+  emptygridmessage: "No Quotes available",
+  columns: {
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Title",
+      weight: 7,
+      field: "title",
+      component: #"SYSTEM_SYSRULES_recordGrid_linkField"(
+        links: #"SYSTEM_SYSRULES_recordLink"(
+          label: rf!title,
+          recordType: rp!type,
+          identifier: rp!id
+        )
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Status",
+      width: "DISTRIBUTE",
+      weight: 3,
+      field: "status.order",
+      component: #"SYSTEM_SYSRULES_recordGrid_textField"(
+        displayvalue: rf!status.value
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Priority",
+      width: "DISTRIBUTE",
+      weight: 2,
+      field: "priority.order",
+      align: "CENTER",
+      component: #"SYSTEM_SYSRULES_recordGrid_imageField_v1"(
+        images: {
+          if(
+            isnull(#"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60075"(rf!priority.value)),
+            {},
+            #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60075"(rf!priority.value)
+          )
+        },
+        size: "ICON"
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Created By",
+      weight: 4,
+      field: "createdBy",
+      component: #"SYSTEM_SYSRULES_recordGrid_linkField"(
+        links: {
+          #"SYSTEM_SYSRULES_userRecordLink"(
+            label: #"85d4e563-6af7-48eb-b1ce-c8464db15f39_FORMATNAME"(rf!createdBy),
+            user: rf!createdBy
+          )
+        }
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Updated On",
+      width: "DISTRIBUTE",
+      weight: 2,
+      field: "updatedOn",
+      align: "RIGHT",
+      component: #"SYSTEM_SYSRULES_recordGrid_textField"(
+        displayvalue: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60027"(rf!updatedOn),
+        align: "RIGHT"
+      )
+    )
+  },
+  pageSize: 50,
+  defaultSort: #"SYSTEM_SYSRULES_sortInfo"(
+    field: "updatedOn",
+    ascending: false
+  )
+)</a:listViewTemplateExpr>
+    <a:fieldCfg name="Status">
+      <a:isSortable>false</a:isSortable>
+      <a:isSearchable>false</a:isSearchable>
+      <a:isFacet>true</a:isFacet>
+      <a:facetType>EXPRESSION</a:facetType>
+      <a:isExclusiveFacet>true</a:isExclusiveFacet>
+      <a:facetExpr>a!localVariables(
+  local!options: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60184"(),
+  local!statusCounts: #"SYSTEM_SYSRULES_queryEntity_v1"(
+    entity: #"c5e89ed9-589f-493e-89dd-2876287b719e_MAINDSECONSTANT",
+    query: #"SYSTEM_SYSRULES_query"(
+      aggregation: #"SYSTEM_SYSRULES_queryAggregation"(
+        aggregationColumns: {
+          #"SYSTEM_SYSRULES_queryAggregationColumn"(field: "status.value", isGrouping: true),
+          #"SYSTEM_SYSRULES_queryAggregationColumn"(field: "id", aggregationFunction: "COUNT")
+        }
+      ),
+      pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(1, -1, #"SYSTEM_SYSRULES_sortInfo"("status.value", true))
+    ),
+    fetchTotalCount: false
+  ),
+  local!statusCountsOrdered: if(
+    local!statusCounts.totalCount = 0,
+    {},
+    #"SYSTEM_SYSRULES_forEach"(
+      items: local!options.value,
+      expression: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60059"(
+        local!statusCounts.data.id,
+        local!statusCounts.data.status.value,
+        fv!item
+      )
+    )
+  ),
+  #"SYSTEM_SYSRULES_facet_v1"(
+    name: "Status",
+    options: #"SYSTEM_SYSRULES_forEach"(
+      items: local!options,
+      expression: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60055"(fv!item, "status", index(local!statusCountsOrdered, fv!index, null))
+    )
+  )
+)</a:facetExpr>
+      <a:sortOrderIndex>0</a:sortOrderIndex>
+      <a:facetOrderIndex>0</a:facetOrderIndex>
+      <a:allowMultipleSelections>false</a:allowMultipleSelections>
+    </a:fieldCfg>
+    <a:fieldCfg name="Priority">
+      <a:isSortable>false</a:isSortable>
+      <a:isSearchable>false</a:isSearchable>
+      <a:isFacet>true</a:isFacet>
+      <a:facetType>EXPRESSION</a:facetType>
+      <a:isExclusiveFacet>true</a:isExclusiveFacet>
+      <a:facetExpr>a!localVariables(
+  local!options: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60188"(),
+  local!priorityCounts: #"SYSTEM_SYSRULES_queryEntity_v1"(
+    entity: #"c5e89ed9-589f-493e-89dd-2876287b719e_MAINDSECONSTANT",
+    query: #"SYSTEM_SYSRULES_query"(
+      aggregation: #"SYSTEM_SYSRULES_queryAggregation"(
+        aggregationColumns: {
+          #"SYSTEM_SYSRULES_queryAggregationColumn"(field: "priority.value", isGrouping: true),
+          #"SYSTEM_SYSRULES_queryAggregationColumn"(field: "id", aggregationFunction: "COUNT")
+        }
+      ),
+      pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(1, -1, #"SYSTEM_SYSRULES_sortInfo"("priority.value", true))
+    ),
+    fetchTotalCount: false
+  ),
+  local!priorityCountsOrdered: if(
+    local!priorityCounts.totalCount = 0,
+    {},
+    #"SYSTEM_SYSRULES_forEach"(
+      items: local!options.value,
+      expression: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60059"(
+        local!priorityCounts.data.id,
+        local!priorityCounts.data.priority.value,
+        fv!item
+      )
+    )
+  ),
+  #"SYSTEM_SYSRULES_facet_v1"(
+    name: "Priority",
+    options: #"SYSTEM_SYSRULES_forEach"(
+      items: local!options,
+      expression: #"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60055"(fv!item, "priority", index(local!priorityCountsOrdered, fv!index, null))
+    )
+  )
+)</a:facetExpr>
+      <a:sortOrderIndex>1</a:sortOrderIndex>
+      <a:facetOrderIndex>1</a:facetOrderIndex>
+      <a:allowMultipleSelections>false</a:allowMultipleSelections>
+    </a:fieldCfg>
+    <a:fieldCfg name="Created By">
+      <a:isSortable>false</a:isSortable>
+      <a:isSearchable>false</a:isSearchable>
+      <a:isFacet>true</a:isFacet>
+      <a:facetType>EXPRESSION</a:facetType>
+      <a:isExclusiveFacet>true</a:isExclusiveFacet>
+      <a:facetExpr>a!localVariables(
+  local!creators:#"SYSTEM_SYSRULES_queryEntity_v1"(
+    entity: #"c5e89ed9-589f-493e-89dd-2876287b719e_MAINDSECONSTANT",
+    query: #"SYSTEM_SYSRULES_query"(
+      aggregation: #"SYSTEM_SYSRULES_queryAggregation"(
+        aggregationColumns: {
+          #"SYSTEM_SYSRULES_queryAggregationColumn"(field: "createdBy", isGrouping: true),
+          #"SYSTEM_SYSRULES_queryAggregationColumn"(field: "createdBy", alias: "numberCreated", aggregationFunction: "COUNT")
+        }
+      ),
+      pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(1, -1, #"SYSTEM_SYSRULES_sortInfo"("createdBy", true))
+    ),
+    fetchTotalCount: false
+  ),
+  if(
+    local!creators.totalCount = 0,
+    {},
+    #"SYSTEM_SYSRULES_facet_v1"(
+      name: "Created By",
+      options: #"SYSTEM_SYSRULES_forEach"(
+        items: local!creators,
+        expression: #"SYSTEM_SYSRULES_facetOption"(
+          id: fv!index,
+          name: #"85d4e563-6af7-48eb-b1ce-c8464db15f39_FORMATNAME"(fv!item.createdBy),
+          filter: #"SYSTEM_SYSRULES_queryFilter"(
+            field: "createdBy",
+            operator: "=",
+            value: fv!item.createdBy
+          ),
+          dataCount: fv!item.numberCreated
+        )
+      )
+    )
+  )
+)</a:facetExpr>
+      <a:sortOrderIndex>2</a:sortOrderIndex>
+      <a:facetOrderIndex>2</a:facetOrderIndex>
+      <a:visibilityExpr/>
+      <a:defaultOptionExpr/>
+      <a:allowMultipleSelections>false</a:allowMultipleSelections>
+    </a:fieldCfg>
+    <a:detailViewCfg>
+      <a:nameExpr>="Summary"</a:nameExpr>
+      <a:uiExpr>#"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60099"(rp!id)</a:uiExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:urlStub>summary</a:urlStub>
+      <a:headerExpr/>
+      <a:relatedActionCfg>bf54b951-2b83-442a-b674-ffe11d542148</a:relatedActionCfg>
+      <a:relatedActionCfg>b1d27bee-251b-4a0e-bfd4-ba5b47cccfd0</a:relatedActionCfg>
+      <a:relatedActionCfg>7cc48f1b-6e09-473f-a80b-8de1ab146b90</a:relatedActionCfg>
+    </a:detailViewCfg>
+    <a:detailViewCfg>
+      <a:nameExpr>"Activity History"</a:nameExpr>
+      <a:uiExpr>#"_a-0000e2f7-bc18-8000-fbeb-01ef9001ef90_60067"(rp!id)</a:uiExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:urlStub>_uMx4mA</a:urlStub>
+      <a:headerExpr/>
+      <a:relatedActionCfg>bf54b951-2b83-442a-b674-ffe11d542148</a:relatedActionCfg>
+      <a:relatedActionCfg>b1d27bee-251b-4a0e-bfd4-ba5b47cccfd0</a:relatedActionCfg>
+    </a:detailViewCfg>
+    <a:relatedActionCfg>
+      <a:target a:uuid="c740865d-4a37-4a47-8f6f-abcdd8785a45" xsi:type="a:ProcessModel"/>
+      <a:contextExpr>a!localVariables(
+  local!record: #"1f5ac744-a910-40d7-8f16-7e124484d836_GETONERECORD"(rp!id),
+  {
+    record: local!record,
+    documents: folder(local!record.folderId, "documentChildren"),
+  }
+)</a:contextExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:iconId>f044</a:iconId>
+      <a:refId>bf54b951-2b83-442a-b674-ffe11d542148</a:refId>
+    </a:relatedActionCfg>
+    <a:relatedActionCfg>
+      <a:target a:uuid="fc650b1b-35bd-4224-bb39-931859e0750a" xsi:type="a:ProcessModel"/>
+      <a:contextExpr>{
+  recordId: rp!id
+}</a:contextExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:iconId>f046</a:iconId>
+      <a:refId>b1d27bee-251b-4a0e-bfd4-ba5b47cccfd0</a:refId>
+    </a:relatedActionCfg>
+    <a:relatedActionCfg>
+      <a:target a:uuid="0a406534-e63a-489b-ab3f-d4ab3cedc859" xsi:type="a:ProcessModel"/>
+      <a:contextExpr>{
+  record: #"1f5ac744-a910-40d7-8f16-7e124484d836_GETONERECORD"(rp!id)
+}</a:contextExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:iconId>f014</a:iconId>
+      <a:refId>7cc48f1b-6e09-473f-a80b-8de1ab146b90</a:refId>
+    </a:relatedActionCfg>
+    <a:isSystem>false</a:isSystem>
+    <a:dataSrcExpr/>
+    <a:facetsListExpr/>
+    <a:titleExpr>rf!title</a:titleExpr>
+    <a:defaultFiltersExpr/>
+    <a:layoutType>GRID</a:layoutType>
+    <a:security>16383</a:security>
+    <a:hideLatestNews>false</a:hideLatestNews>
+    <a:isExportable>true</a:isExportable>
+    <a:recordListActionCfg>
+      <a:staticTitle>New Quote</a:staticTitle>
+      <a:staticDescription>Create a new Quote</a:staticDescription>
+      <a:iconId>f067</a:iconId>
+      <a:target a:uuid="e854a155-2759-4d85-8b82-b80295d0a81c" xsi:type="a:ProcessModel"/>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+    </a:recordListActionCfg>
+  </recordType>
+  <roleMap>
+    <role name="record_type_administrator">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_226</groupUuid>
+      </groups>
+    </role>
+    <role name="record_type_viewer">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e2f7-bc18-8000-fbeb-011e94011e94_228</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="8ac39750-7352-4052-a63f-3261d3f78bb2"/>
+  </history>
+  <migrationVersion>1</migrationVersion>
+</recordTypeHaul>
