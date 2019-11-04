@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e341-a82e-8000-ffe9-01ef9001ef90_94881</versionUuid>
+    <rule>
+        <name>InterfaceDemo</name>
+        <uuid>_a-0000e320-a371-8000-ffe9-01ef9001ef90_86214</uuid>
+        <description>Interface to input numbers and operator to perform operation</description>
+        <parentUuid>_a-0000e320-a371-8000-ffe9-01ef9001ef90_86209</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "Operations on Numbers",
+  contents: {
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      contents: {}
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Section",
+      contents: {
+        #"SYSTEM_SYSRULES_columnsLayout"(
+          columns: {
+            #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {
+                #"SYSTEM_SYSRULES_integerField"(
+                  label: "Var1",
+                  labelPosition: "ABOVE",
+                  instructions: "Enter Var1 value here",
+                  value: ri!Var1,
+                  saveInto: ri!Var1,
+                  refreshAfter: "UNFOCUS",
+                  showwhen: true,
+                  required: true,
+                  validations: {}
+                ),
+                #"SYSTEM_SYSRULES_integerField"(
+                  label: "Var2",
+                  labelPosition: "ABOVE",
+                  instructions: "Enter Var2 value here",
+                  value: ri!Var2,
+                  saveInto: ri!Var2,
+                  refreshAfter: "UNFOCUS",
+                  required: true,
+                  validations: {}
+                )
+              }
+            )
+          }
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_dropdownField"(
+      label: "Select Operator",
+      labelPosition: "ABOVE",
+      placeholderLabel: "--- Select a Value ---",
+      choiceLabels: {"Addition", "Subtraction","Multiplication","Division"},
+      choiceValues: {"+","-","*","/"},
+      value: ri!Operator,
+      saveInto: ri!Operator,
+      required: true,
+      validations: {}
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Submit",
+        value: true,
+        saveInto: {a!save(ri!result,
+        if(ri!Operator="+",ri!Var1 + ri!Var2,
+        if(ri!Operator="-",ri!Var1 - ri!Var2,
+        if(ri!Operator="*",ri!Var1 * ri!Var2,
+        if(ri!Operator="/",ri!Var1 / ri!Var2,"Invalid Operation"))))
+        ),ri!SubmitFlag},
+        submit: true,
+        style: "PRIMARY"
+      )
+    },
+    secondaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Cancel",
+        value: true,
+        saveInto: ri!cancel,
+        submit: true,
+        style: "NORMAL",
+        validate: false
+      )
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Var1</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Var2</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>result</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>SubmitFlag</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>Operator</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>snehal_a</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e341-a82e-8000-ffe9-01ef9001ef90_94881"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e341-a82e-8000-ffe9-01ef9001ef90_96445</versionUuid>
+    <rule>
+        <name>DisplayParallelOperationResults</name>
+        <uuid>_a-0000e341-a82e-8000-ffe9-01ef9001ef90_96389</uuid>
+        <description>Interface which displays parallel execution of the digits operations</description>
+        <parentUuid>_a-0000e320-a371-8000-ffe9-01ef9001ef90_86209</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_sectionLayout_v1"(
+    contents: {
+      #"SYSTEM_SYSRULES_textField"(
+        label: "Addition",
+        labelPosition: "ABOVE",
+        value: ri!resultAdd,
+        saveInto: ri!resultAdd,
+        refreshAfter: "UNFOCUS",
+        readonly: true,
+        validations: {}
+      )
+    }
+  ),
+  #"SYSTEM_SYSRULES_textField"(
+    label: "Substraction",
+    labelPosition: "ABOVE",
+    value: ri!resultSub,
+    saveInto: ri!resultSub,
+    refreshAfter: "UNFOCUS",
+    readonly: true,
+    validations: {}
+  ),
+  #"SYSTEM_SYSRULES_textField"(
+    label: "Multiplication",
+    labelPosition: "ABOVE",
+    value: ri!resultMul,
+    saveInto: ri!resultMul,
+    refreshAfter: "UNFOCUS",
+    readonly: true,
+    validations: {}
+  ),
+  #"SYSTEM_SYSRULES_textField"(
+    label: "Division",
+    labelPosition: "ABOVE",
+    value: ri!resultDiv,
+    saveInto: ri!resultDiv,
+    refreshAfter: "UNFOCUS",
+    readonly: true,
+    validations: {}
+  )
+}</definition>
+        <namedTypedValue>
+            <name>resultAdd</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>resultSub</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>resultMul</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>resultDiv</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>snehal_a</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e341-a82e-8000-ffe9-01ef9001ef90_96445"/>
+    </history>
+</contentHaul>

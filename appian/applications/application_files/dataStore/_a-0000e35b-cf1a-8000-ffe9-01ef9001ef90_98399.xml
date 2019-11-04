@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataStoreHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e35b-cf1a-8000-ffe9-01ef9001ef90_98417</versionUuid>
+    <dataStore>
+        <uuid>_a-0000e35b-cf1a-8000-ffe9-01ef9001ef90_98399</uuid>
+        <name>CityDetailsDS</name>
+        <description>Data store for digits operation application</description>
+        <dataSourceKey>jdbc/TestConnection</dataSourceKey>
+        <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>false</autoUpdateSchema>
+        <entities>
+            <entity>
+                <uuid>9fab5765-3944-475c-bb9f-adeb8a86c432</uuid>
+                <name>DemoEntity</name>
+                <type>{urn:com:appian:types:DemoCDT}ascitydetails</type>
+            </entity>
+        </entities>
+    </dataStore>
+    <isPublished>true</isPublished>
+    <roleMap>
+        <role inherit="false" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>snehal_a</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e35b-cf1a-8000-ffe9-01ef9001ef90_98417"/>
+    </history>
+</dataStoreHaul>
